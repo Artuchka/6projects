@@ -14,7 +14,9 @@
 
 .overlay {
 	opacity: 0;
+	z-index: -1;
 	position: absolute;
+	transition: all 0.3s;
 
 	left: 0;
 	right: 0;
@@ -27,11 +29,18 @@
 	align-items: center;
 
 	&.show {
+		z-index: 1;
 		opacity: 1;
 		background-color: rgb(0 0 0 / 0.3);
+
+		.modal {
+			translate: 0 0;
+		}
 	}
 
 	.modal {
+		translate: 0 150%;
+		transition: all 0.5s;
 		background-color: #fff;
 		color: black;
 		padding: 0 1rem 1rem;
