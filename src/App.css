@@ -1,38 +1,54 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
 .App {
-  text-align: center;
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	text-align: center;
+	font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+	color: rgb(101, 101, 101);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.count {
+	font-size: 7rem;
+	font-weight: bold;
+	margin-block: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn-container {
+	display: flex;
+	gap: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.btn {
+	color: var(--color, white);
+	background: var(--bgcolor, black);
+	box-shadow: var(--vo, 0) var(--ho, .2rem) var(--blur, 0rem) var(--width, 0rem) var(--shadowcolor, black);
+	border: none;
+	outline: none;
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: capitalize;
+	cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn--danger {
+	--bgcolor: red;
+	--shadowcolor: darkred;
+}
+
+.btn--ok {
+	--bgcolor: green;
+	--shadowcolor: darkgreen;
 }
