@@ -39,6 +39,7 @@
 	}
 
 	.modal {
+		min-width: 200px;
 		translate: 0 150%;
 		transition: all 0.5s;
 		background-color: #fff;
@@ -54,4 +55,16 @@
 			border: none;
 		}
 	}
+}
+
+.btn {
+	border: none;
+	background: var(--bg, white);
+	color: white;
+	font-size: 1rem;
+	padding: 0.5em 1em;
+}
+
+.btn--ok {
+	--bg: hsl(120, 52%, 45%);
 }
