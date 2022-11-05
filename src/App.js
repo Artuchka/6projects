@@ -1,31 +1,26 @@
 import { useState } from "react"
-import "./App.scss"
-
-function Modal({ open, setOpen, children }) {
-	return (
-		<div className={`overlay ${open ? "show" : ""}`}>
-			<div className="modal">
-				<div className="close" onClick={() => setOpen(false)}>
-					&times;
-				</div>
-				<div className="info">{children}</div>
-			</div>
-		</div>
-	)
-}
+import "./App.css"
 
 function App() {
-	const [open, setOpen] = useState(false)
-
+	const [count, setCount] = useState(0)
 	return (
 		<div className="App">
-			<button onClick={() => setOpen(true)} className="btn btn--ok">
-				🥳open modal🥳
-			</button>
-
-			<Modal open={open} setOpen={setOpen}>
-				im infooo
-			</Modal>
+			<h1 className="title">Counter:</h1>
+			<div className="count">{count}</div>
+			<div className="btn-container">
+				<button
+					onClick={() => setCount(count - 1)}
+					className="btn btn--danger"
+				>
+					- subtract
+				</button>
+				<button
+					onClick={() => setCount(count + 1)}
+					className="btn btn--ok"
+				>
+					add +
+				</button>
+			</div>
 		</div>
 	)
 }
