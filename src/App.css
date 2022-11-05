@@ -1,0 +1,54 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.App {
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+.title {
+	color: rgb(101, 101, 101);
+}
+
+.count {
+	font-size: 7rem;
+	font-weight: bold;
+	margin-block: 1rem;
+}
+
+.btn-container {
+	display: flex;
+	gap: 1rem;
+}
+
+.btn {
+	color: var(--color, white);
+	background: var(--bgcolor, black);
+	box-shadow: var(--vo, 0) var(--ho, .2rem) var(--blur, 0rem) var(--width, 0rem) var(--shadowcolor, black);
+	border: none;
+	outline: none;
+	padding: 0.5em 1em;
+	border-radius: 0.5em;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: capitalize;
+	cursor: pointer;
+}
+
+.btn--danger {
+	--bgcolor: red;
+	--shadowcolor: darkred;
+}
+
+.btn--ok {
+	--bgcolor: green;
+	--shadowcolor: darkgreen;
+}
