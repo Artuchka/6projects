@@ -1,0 +1,70 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.App {
+	display: grid;
+	place-content: center;
+	min-height: 100vh;
+	width: 100%;
+	background-color: hsla(264, 85%, 32%, 0.656);
+}
+
+.quiz-form,
+.result-form {
+	min-width: 300px;
+	max-width: 500px;
+	width: 100%;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 0.3em;
+	padding: 2rem;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.progress {
+	height: 10px;
+	border-radius: 100vmax;
+	background-color: rgb(0 0 0 / 0.2);
+	&__inner {
+		border-radius: 100vmax;
+		height: 100%;
+		background: linear-gradient(
+			to right,
+			rgb(37, 255, 17) 0%,
+			rgb(83, 70, 254) 100%
+		);
+	}
+}
+
+.title {
+	font-weight: bold;
+	font-size: 3rem;
+}
+
+.variants {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	& > li {
+		border: 1px solid gray;
+		padding: 0.5em;
+		border-radius: 0.3em;
+	}
+}
+
+.btn {
+	border: none;
+	outline: none;
+	font-size: 1rem;
+	background-color: hsl(141, 80%, 37%);
+	color: white;
+	font-weight: bold;
+	padding: 0.5em 1em;
+	cursor: pointer;
+}
