@@ -1,7 +1,15 @@
 import React from "react"
 
 export default function User(props) {
-	const { isInvited, avatar, first_name, email, id, last_name } = props
+	const {
+		isInvited,
+		avatar,
+		first_name,
+		email,
+		id,
+		last_name,
+		handleInvite,
+	} = props
 	return (
 		<div className="user">
 			<img src={avatar} alt="avatar" className="avatar" />
@@ -11,7 +19,7 @@ export default function User(props) {
 				</span>
 				<span className="email">{email}</span>
 			</div>
-			<div className="image-add-remove">
+			<div className="image-add-remove" onClick={() => handleInvite(id)}>
 				{isInvited ? (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

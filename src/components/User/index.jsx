@@ -2,7 +2,17 @@ import React from "react"
 import User from "./User"
 import Skeleton from "../Skeleton"
 
-export default function Users({ items, isLoading }) {
+export default function Users(props) {
+	const {
+		items,
+		isLoading,
+		handleInvite,
+		invited,
+		handleSendInvites,
+		searchValue,
+		handleSearchInput,
+	} = props
+
 	return (
 		<div className="invite-form">
 			<div className="search-box">
@@ -23,22 +33,52 @@ export default function Users({ items, isLoading }) {
 						/>
 					</svg>
 				</label>
-				<input placeholder="Find user..." id="searchBox" />
+				<input
+					placeholder="Find user by name, email..."
+					id="searchBox"
+					value={searchValue}
+					onChange={handleSearchInput}
+				/>
 			</div>
 
 			<div className="users-list">
 				{isLoading ? (
-					<Skeleton />
+					<>
+						<Skeleton />
+						<Skeleton />
+						<Skeleton />
+						<Skeleton />
+					</>
 				) : (
 					<>
-						{items.map((user) => {
-							return <User key={user.id} {...user}></User>
-						})}
+						{items
+							.filter(({ first_name, last_name, email }) => {
+								const full = (
+									first_name +
+									last_name +
+									email
+								).toLowerCase()
+								return full.includes(
+									searchValue.toLowerCase().replace(" ", "")
+								)
+							})
+							.map((user) => {
+								return (
+									<User
+										key={user.id}
+										{...user}
+										handleInvite={handleInvite}
+										isInvited={invited.includes(user.id)}
+									></User>
+								)
+							})}
 					</>
 				)}
 			</div>
 
-			<button className="btn btn--full">Send invites</button>
+			<button className="btn btn--full" onClick={handleSendInvites}>
+				Send invites
+			</button>
 		</div>
 	)
 }
